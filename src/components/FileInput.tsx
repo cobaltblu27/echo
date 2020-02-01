@@ -1,20 +1,19 @@
 import React from "react";
 import "./FileInput.scss";
 import FileDrop from "react-file-drop";
-import { AudioType } from "../lib/types";
+import { decodeAudio } from "../lib/audio";
 
 const FileInput = () => {
-  const handleDrop = (files: FileList | null, event: any) => {
+  const handleDrop = async (files: FileList | null, event: any) => {
     if (files == null) return;
     if (files.length !== 1) {
       alert("파일을 한개만 놓으세요.");
       return;
     }
-    const file = files[0];
-    const extension: string = file.name.split(".").pop()!;
-    if (!Object.keys(AudioType).includes(extension)) {
-      alert(".mp3, .wav 파일만 사용 가능합니다");
-      return;
+    try {
+      const audioBlob = await decodeAudio(files[0]);
+    } catch (e) {
+      alert(e.message);
     }
   };
 
