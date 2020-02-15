@@ -1,11 +1,11 @@
 import React from "react";
 import "./FileInput.scss";
 import { decodeAudio } from "../lib/audio";
-// import * as RsAudio from "rs-module";
+import("rs-module").then(module => {
+  module.greet();
+});
 
 const FileInput = (props: { setAudio: (blob: Blob) => void }) => {
-  // RsAudio.greet();
-
   const handleDrop = async (files: FileList | null, event: any) => {
     if (files == null) return;
     if (files.length !== 1) {
