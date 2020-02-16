@@ -16,3 +16,8 @@ cd "$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 #     --out-dir js
 cd rs
 wasm-pack build --out-dir rs-pkg 
+
+cd ..
+yarn remove rust
+yarn add file:./rs/rs-pkg
+yarn install

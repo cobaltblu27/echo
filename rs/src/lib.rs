@@ -9,5 +9,5 @@ extern {
 
 #[wasm_bindgen]
 pub fn greet() {
-    alert("Hello, test-wasm!");
+    alert("Hello, wasm!!");
 }

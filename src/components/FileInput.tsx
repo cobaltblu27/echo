@@ -5,6 +5,7 @@ import FileDrop from "react-file-drop";
 
 const FileInput = (props: { setAudio: (blob: Blob) => void }) => {
   const decoder = new AudioDecoder();
+  decoder.greet();
 
   const handleDrop = async (files: FileList | null, event: any) => {
     if (files == null) return;

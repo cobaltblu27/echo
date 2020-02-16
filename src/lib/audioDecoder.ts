@@ -14,7 +14,7 @@ class AudioDecoder {
   }
 
   private loadModule = () => {
-    this.loadPromise = import('rs-module')
+    this.loadPromise = import('rust')
       .then(m => this.rsAudioModule = m)
   }
 
